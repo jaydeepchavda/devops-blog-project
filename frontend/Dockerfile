@@ -1,21 +1,21 @@
-#FROM → base image
-FROM node:18
 
-#WORKDIR → working folder
+# 1. Base image
+FROM node:18-alpine
+
+# 2. Set working directory
 WORKDIR /app
 
+# 3. Copy only dependency files first (for caching)
+COPY package.json package-lock.json ./
 
-#COPY → bring code inside container
-COPY package*.json ./
+# 4. Install dependencies (deterministic)
+RUN npm ci
 
-#RUN -> install dependencies 
-RUN npm install
-
+# 5. Copy rest of the app
 COPY . .
 
-#expose ports
+# 6. Expose port (React runs on 3000)
 EXPOSE 3000
 
-
-#CMD -> start app
+# 7. Start the app
 CMD ["npm", "start"]
