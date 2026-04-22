@@ -5,8 +5,8 @@ version: "3"
 services:
 
   backend:
-    build: ./backend
-    container_name: backend
+    image: jaydipaws/devops-blog-frontend:v1
+      #container_name: backend
     ports:
       - "8080:8080"
     environment:
@@ -16,16 +16,16 @@ services:
 
 
   frontend:
-    build: ./frontend
-    container_name: frontend
+    image: jaydipaws/devops-blog-frontend:v1
+      #container_name: frontend
     ports:
-      - "8081:8081"
+      - "8081:3000"
     depends_on:
       - backend
 
 
   mongo:
     image: mongo:6
-    container_name: mongo
+      #container_name: mongo
     ports: 
       - "27017:27017"
