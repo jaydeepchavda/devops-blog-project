@@ -59,7 +59,9 @@ jobs:
         with: 
           context: ./frontend
           push: true
-          tags: jaydipaws/devops-blog-frontend:${{github.sha}}
+          tags: |
+            jaydipaws/devops-blog-frontend:${{github.sha}}
+            jaydipaws/devops-blog-backend:latest
 
 
   backend: 
@@ -90,4 +92,7 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: jaydipaws/devops-blog-backend:${{github.sha}} 
+          tags: |
+            jaydipaws/devops-blog-backend:${{github.sha}}
+            jaydipaws/devops-blog-backend:latest
+
