@@ -10,6 +10,7 @@ COPY package.json package-lock.json ./
 
 # 4. Install dependencies (deterministic)
 RUN npm install
+# we can use npm ci
 
 # 5. Copy rest of the app
 COPY . .

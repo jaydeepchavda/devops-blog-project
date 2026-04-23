@@ -27,5 +27,6 @@ services:
   mongo:
     image: mongo:6
       #container_name: mongo
+      #for mongo service to backend 
     ports: 
       - "27017:27017"
