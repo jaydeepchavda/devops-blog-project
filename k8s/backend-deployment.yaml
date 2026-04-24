@@ -10,6 +10,13 @@ metadata:
 spec:
   replicas: 2
 
+  strategy:
+    type: RollingUpdate
+
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
   selector:
     matchLabels:
       app: backend
@@ -30,7 +37,25 @@ spec:
 
         env: 
         - name: MONGO_URL
-          value: mongodb://mongo-service:27017/test 
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: MONGO_URL
+
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_USERNAME
+
+
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_PASSWORD
+
+                
 
         readinessProbe:
           tcpSocket:
