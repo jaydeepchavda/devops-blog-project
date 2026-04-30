@@ -1,6 +1,7 @@
 
 # 1. Base image
 FROM node:18-alpine
+# this is used to reduce the image size
 
 # 2. Set working directory
 WORKDIR /app
