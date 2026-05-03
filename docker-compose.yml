@@ -23,7 +23,8 @@ services:
     depends_on:
       - backend
 
-
+  #fix the mongo iamge 
+  #with mongo :6
   mongo:
     image: mongo:6
       #container_name: mongo
