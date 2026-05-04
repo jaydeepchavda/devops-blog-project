@@ -4,4 +4,13 @@ node_modules
 Dockerfile
 docker-compose.yml
 npm-debug.log
+.envnode_modules
+.git
+.gitignore
+Dockerfile
+README.md
+npm-debug.log
 .env
+dist
+build
+
