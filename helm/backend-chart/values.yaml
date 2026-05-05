@@ -1,0 +1,11 @@
+
+replicaCount: 2
+
+image:
+  repository: jaydipaws/devops-blog-backend
+  tag: v2
+
+env:
+  mongoUrl: mongodb://mongo-service:27017/test
+
+
