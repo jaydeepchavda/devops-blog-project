@@ -5,6 +5,12 @@ metadata:
   name: backend
   namespace: devops-blog
 
+  labels:
+    app: backend
+    environment: dev
+    managed-by: helm
+
+
 spec:
   replicas: {{ .Values.replicaCount }}
 
