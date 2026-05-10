@@ -11,7 +11,7 @@ metadata:
     managed-by: helm
 
 
-spec:
+ spec:
   replicas: {{ .Values.replicaCount }}
 
   selector:
@@ -29,6 +29,7 @@ spec:
       containers:
       - name: backend
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: always
 
         ports:
         - containerPort: 8080
