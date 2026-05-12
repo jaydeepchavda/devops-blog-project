@@ -11,7 +11,8 @@ metadata:
     managed-by: helm
 
 
- spec:
+spec:
+  revisionHistoryLimit: 3
   replicas: {{ .Values.replicaCount }}
 
   selector:
