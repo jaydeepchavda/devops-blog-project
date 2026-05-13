@@ -74,7 +74,12 @@ jobs:
       #1 checkout repository code
       - name: checkout code
         uses: actions/checkout@v4
+      
 
+      # 6. Helm lint validation 👈 HERE 
+      - name: Lint Helm Chart 
+        run: |
+          helm lint ./helm/backend-chart
 
 
       #2 login to docker hub
