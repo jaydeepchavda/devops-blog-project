@@ -81,6 +81,11 @@ jobs:
         run: |
           helm lint ./helm/backend-chart
 
+    
+      - name: Check Deployment Rollout
+        run: |
+          kubectl rollout status deployment/backend -n devops-blog
+
 
       #2 login to docker hub
       - name: Docker login
