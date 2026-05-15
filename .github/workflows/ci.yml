@@ -81,7 +81,12 @@ jobs:
         run: |
           helm lint ./helm/backend-chart
 
-    
+      
+      - name: Render Helm Templates 
+        run: | 
+          helm template backend ./helm/backend-chart    
+      
+
       - name: Check Deployment Rollout
         run: |
           kubectl rollout status deployment/backend -n devops-blog
