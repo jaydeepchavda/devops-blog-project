@@ -19,5 +19,15 @@ COPY . .
 # 6. Expose port (React runs on 3000)
 EXPOSE 3000
 
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Change ownership
+RUN chown -R appuser:appgroup /app
+
+# Switch user
+USER appuser
+
+
 # 7. Start the app
 CMD ["npm", "start"]
